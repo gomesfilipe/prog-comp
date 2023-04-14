@@ -4,40 +4,45 @@
 #include <vector>
 using namespace std;
 
-vector<int> v;
+bool jolly(int n);
 
 int main() {
-  int n, a, b;
-  cin >> n;
+  int n;
 
-  for(int i = 0; i < n - 1; i++) {
-    v.push_back(i + 1);
+  while(true) {
+    // if(feof(stdin)) break;
+    if(!(cin >> n)) break;
+    // cout << n << endl;
+    if(jolly(n)) {
+      cout << "Jolly" << endl;
+    } else {
+      cout << "Not jolly" << endl;
+    }
+    // cout << n << endl << feof(stdin) << endl << endl;
+
   }
+  return 0;
+}
+
+bool jolly(int n) {
+  int a, b, diff;
+  string scape;
+  vector<bool> diffFound(n - 1, false);
 
   cin >> a;
   for(int i = 0; i < n - 1; i++) {
     cin >> b;
-    if(abs(b - a) > n - 1) {
-      cout << "Not jolly" << endl;
-      return 0;
+    diff = abs(b - a);
+    if(diff < 1 || diff > n - 1 || diffFound[diff - 1]) {
+      getline(cin, scape);
+      // cin.ignore();
+      // cin.ignore();
+      // cout << "scape " << scape << endl;
+      return false;
     } else {
-      if(binary_search(v.begin(), v.end(), abs(b - a))) {
-        // cout << "encontrou " << abs(b - a) << endl;
-        // printf("ponteiro: [%d]\n", *lower_bound(v.begin(), v.end(), abs(b - a)));
-        v.erase(lower_bound(v.begin(), v.end(), abs(b - a)));
-      } else {
-        cout << "Not jolly" << endl;
-        return 0;
-      }
+      diffFound[diff - 1] = true;
     }
-
     a = b;
   }
-
-  // for(int& i : v) {
-  //   cout << i << endl;
-  // }
-
-  cout << "Jolly" << endl;
-  return 0;
+  return true;
 }

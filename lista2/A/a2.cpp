@@ -4,36 +4,36 @@
 #include <vector>
 using namespace std;
 
-bool jolly(int n);
+vector<int> v;
 
 int main() {
-  int n;
+  int n, a, b;
   cin >> n;
 
-  if(jolly(n)) {
-    cout << "Jolly";
-  } else {
-    cout << "Not jolly";
+  for(int i = 0; i < n - 1; i++) {
+    v.push_back(i + 1);
   }
-
-  return 0;
-}
-
-bool jolly(int n) {
-  int a, b, diff;
-  vector<bool> diffFound(n - 1, false);
 
   cin >> a;
   for(int i = 0; i < n - 1; i++) {
     cin >> b;
-    diff = abs(b - a);
-    if(diff < 1 || diff > n - 1 || diffFound[diff - 1]) {
-      return false;
+    if(abs(b - a) > n - 1) {
+      cout << "Not jolly" << endl;
+      return 0;
     } else {
-      diffFound[diff - 1] = true;
+      if(binary_search(v.begin(), v.end(), abs(b - a))) {
+        // cout << "encontrou " << abs(b - a) << endl;
+        // printf("ponteiro: [%d]\n", *lower_bound(v.begin(), v.end(), abs(b - a)));
+        v.erase(lower_bound(v.begin(), v.end(), abs(b - a)));
+      } else {
+        cout << "Not jolly" << endl;
+        return 0;
+      }
     }
+
     a = b;
   }
 
-  return true;
+  cout << "Jolly" << endl;
+  return 0;
 }
