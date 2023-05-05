@@ -156,21 +156,5 @@ int main() {
     executeTestCase(T, v, size, i + 1);
   }
 
-  
-  return 0;
-  
-  //int n = 6;
-  //int A[] = {1, 3, 5, 7, 9, 11}; //# valores
-
-  //build(T, A, n);                //# Constrói a SegTree
-
-  //update(T, A, n, 2, -1);        //# Subtrai 1 de A[2] // A[i] = A[i] + x
-  //# 1, 3, 4, 7, 9, 11
-
-  //#for (int i = 1; i < 4 * n; i++) 
-  //#  cout << i << " " << T[i] << endl;
-
-  //cout << query(T, n, 2, 3);     //#Soma dos elementos A[2, ..., 3]
-
   return 0;
 }
