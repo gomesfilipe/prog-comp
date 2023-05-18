@@ -1,11 +1,13 @@
 # Programação Competitiva 2023/1
 
 **Aluno:** Filipe Gomes Arante de Souza\
-**Professor:** Govanni Ventorim Commarela
+**Professor:** Giovanni Ventorim Comarela
 
 Nesta disciplina estudamos paradigmas de programação, estruturas de dados e algoritmos num nível um pouco mais avançado, visando a preparação para maratonas de programação e entrevistas de emprego.
 
-As linguagens de programação utilizadas para resolver os problemas propostos são:
+Para aplicar esses conceitos na prática, utilizamos a plataforma *<a href="https://vjudge.net/">VJudge</a>* para submissão dos problemas propostos.
+
+As linguagens de programação utilizadas para resolvê-los são:
 
 ```
 Python 3
