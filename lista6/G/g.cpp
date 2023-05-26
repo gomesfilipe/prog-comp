@@ -1,11 +1,12 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <cmath>
 
 using namespace std;
 
 double f(double p, double q, double r, double s, double t, double u, double x);
 
 int main(){
-	ios::sync_with_stdio(false);
+	// ios::sync_with_stdio(false);
 	double p, q, r, s, t, u;
 	double left, right, x;
 
@@ -15,13 +16,13 @@ int main(){
     double fl = f(p, q, r, s, t, u, left);
     double fr = f(p, q, r, s, t, u, right);
 
-    if(fl == 0) {
-      printf("%.4f\n", fl);
+    if(fl == 0.0) {
+      printf("%.4f\n", left);
       continue;
     }
 
-    if(fr == 0) {
-      printf("%.4f\n", fr);
+    if(fr == 0.0) {
+			printf("%.4f\n", right);
       continue;
     }
 
