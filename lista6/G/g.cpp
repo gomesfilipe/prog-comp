@@ -34,9 +34,6 @@ int main(){
 		for(int i = 0; i < 100; i++) {
 			x = (left + right) / 2.0;
 			double fx = f(p, q, r, s, t, u, x);
-
-			double auxLeft = f(p, q, r, s, t, u, left) * f(p, q, r, s, t, u, x);
-			double auxRight = f(p, q, r, s, t, u, right) * f(p, q, r, s, t, u, x);
 			
 			if(fl * fx < 0) {
 				right = x;
@@ -50,7 +47,6 @@ int main(){
 	}
 
 	return 0;
-
 }
 
 double f(double p, double q, double r, double s, double t, double u, double x) {
