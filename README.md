@@ -44,3 +44,5 @@ As listas de problemas abordam os seguintes assuntos:
 ## Lista 6 - Paradigma Busca Completa + Divisão e Conquista
 - Método da bisseção;
 - Busca ternária;
+
+## Lista 7 - Paradigma Guloso
