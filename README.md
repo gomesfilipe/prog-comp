@@ -46,3 +46,4 @@ As listas de problemas abordam os seguintes assuntos:
 - Busca ternária;
 
 ## Lista 7 - Paradigma Guloso
+- Otimização;
