@@ -47,3 +47,8 @@ As listas de problemas abordam os seguintes assuntos:
 
 ## Lista 7 - Paradigma Guloso
 - Otimização;
+
+## Lista 8 - Paradigma Programação Dinâmica
+- Otimização;
+- Problema da mochila;
+- Distância de edição;
