@@ -77,24 +77,24 @@ void BellmanFord(struct Graph* graph, int src) {
   
 // Driver's code
 int main() {
-    int tests;
-    cin >> tests;
+  int tests;
+  cin >> tests;
 
-    for(int i = 0; i < tests; i++) {
-      int V, E;
-      cin >> V >> E;
+  for(int i = 0; i < tests; i++) {
+    int V, E;
+    cin >> V >> E;
 
-      struct Graph* graph = createGraph(V, E);
+    struct Graph* graph = createGraph(V, E);
 
-      for(int j = 0; j < E; j++) {
-        int a, b, w;
-        cin >> a >> b >> w;
-        graph->edge[j].src = a;
-        graph->edge[j].dest = b;
-        graph->edge[j].weight = w;
-      }
-
-      BellmanFord(graph, 0);
+    for(int j = 0; j < E; j++) {
+      int a, b, w;
+      cin >> a >> b >> w;
+      graph->edge[j].src = a;
+      graph->edge[j].dest = b;
+      graph->edge[j].weight = w;
     }
-    return 0;
+
+    BellmanFord(graph, 0);
+  }
+  return 0;
 }
