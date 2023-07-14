@@ -68,43 +68,33 @@ void shortestPath(vector<pair<int, int> > adj[], int V,
 	// for (int i = 0; i < V; ++i)
 	// 	printf("%d \t\t %d\n", i, dist[i]);
 
-    printf("Case #%d: ", caso);
+  printf("Case #%d: ", caso);
 
-    if (dist[dest] == INF)
-    {
-        printf("unreachable\n");
-    }
-    else{
-        printf("%d\n", dist[dest]);
-    }
-
+  if (dist[dest] == INF) {
+    printf("unreachable\n");
+  }
+  else {
+    printf("%d\n", dist[dest]);
+  }
 }
 
 // Driver program to test methods of graph class
-int main()
-{
-    int cases;
+int main() {
+  int cases;
+  cin >> cases;
 
-    cin >> cases;
+  for(int i = 0; i < cases; i++) {
+      int n, m, s, t;
+      cin >> n >> m >> s >> t;
+      vector<iPair> adj[n];
 
-    for(int i = 0; i < cases; i++)
-    {
-        int n, m, s, t;
+      for (int j = 0; j < m; j++) {
+        int u, v, weight;
+        cin >> u >> v >> weight;
+        addEdge(adj, u, v, weight);
+      }
+      shortestPath(adj, n, s, t, i + 1);        
+  }
 
-        cin >> n >> m >> s >> t;
-
-        vector<iPair> adj[n];
-
-        for (int j = 0; j < m; j++)
-        {
-            int u, v, weight;
-
-            cin >> u >> v >> weight;
-
-            addEdge(adj, u, v, weight);
-        }
-
-        shortestPath(adj, n, s, t, i + 1);        
-    }
 	return 0;
 }
