@@ -52,3 +52,15 @@ As listas de problemas abordam os seguintes assuntos:
 - Otimização;
 - Problema da mochila;
 - Distância de edição;
+
+## Lista 9 - Caminhamento em Grafos
+- Busca primeiro em profundidade (DFS);
+- Busca primeiro em largura (BFS);
+
+## Lista 10 - Caminhos Mínimos em Grafos
+- Algoritmo de Dijkstra;
+- Algoritmo de Floyd-Warshall;
+- Algoritmo de Bellman-Ford;
+
+## Lista 11 - Fluxo Máximo em Grafos
+- Algoritmo de Ford-Fulkerson;
