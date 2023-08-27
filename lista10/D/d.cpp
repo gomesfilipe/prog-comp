@@ -14,22 +14,18 @@ public:
 	int shortestPath(int s, int t);
 };
 
-// Allocates memory for adjacency list
 Graph::Graph(int V)
 {
 	this->V = V;
 	adj = new list<iPair>[V];
 }
 
-void Graph::addEdge(int u, int v, int w)
-{
+void Graph::addEdge(int u, int v, int w) {
 	adj[u].push_back(make_pair(v, w));
 	adj[v].push_back(make_pair(u, w));
 }
 
-int Graph::shortestPath(int src, int target)
-{
-	// cout << "entrou" << endl;
+int Graph::shortestPath(int src, int target) {
   priority_queue<iPair, vector<iPair>, greater<iPair> > pq;
 
 	vector<int> dist(V, INF);
@@ -37,7 +33,6 @@ int Graph::shortestPath(int src, int target)
 	pq.push(make_pair(0, src));
 	dist[src] = 0;
 	while (!pq.empty()) {
-    // cout << "entrou1" << endl;
 		int u = pq.top().second;
 		pq.pop();
 
@@ -52,7 +47,6 @@ int Graph::shortestPath(int src, int target)
 			}
 		}
 	}
-  // cout << "saiu" << endl;
   return dist[target];
 }
 
@@ -60,12 +54,8 @@ int cost(int a, int b, int c, int d) {
   return a * c + b * d;
 }
 
-// bool validPosition(int i, int j) {
-//   return i >= 0 && i < 8 && j >= 0 && j < 8;
-// }
-
-bool validPosition(int p) {
-  return p >= 0 && p < 64;
+bool validPosition(int i, int j) {
+  return i >= 0 && i < 8 && j >= 0 && j < 8;
 }
 
 int main() {
@@ -78,19 +68,27 @@ int main() {
 
     for(int i = 0; i < 8; i++) {
       for(int j = 0; j < 8; j++) {
-        iPair adj[8] = {
-          make_pair(8*(i-2)+(j-1), cost(i, j, i-2, j-1)),
-          make_pair(8*(i-2)+(j+1), cost(i, j, i-2, j+1)),
-          make_pair(8*(i-1)+(j-2), cost(i, j, i-1, j-2)),
-          make_pair(8*(i-1)+(j+2), cost(i, j, i-1, j+2)),
-          make_pair(8*(i+1)+(j-2), cost(i, j, i+1, j-2)),
-          make_pair(8*(i+1)+(j+2), cost(i, j, i+1, j+2)),
-          make_pair(8*(i+2)+(j-1), cost(i, j, i+2, j-1)),
-          make_pair(8*(i+2)+(j+1), cost(i, j, i+2, j+1))
+        iPair pos[8] = {
+          make_pair(i - 2, j - 1),
+          make_pair(i - 2, j + 1),
+          make_pair(i - 1, j - 2),
+          make_pair(i - 1, j + 2),
+          make_pair(i + 1, j - 2),
+          make_pair(i + 1, j + 2),
+          make_pair(i + 2, j - 1),
+          make_pair(i + 2, j + 1)
         };
+        
+        vector<iPair> adj2;
 
-        for(iPair x : adj) {
-          if(validPosition(x.first)) g.addEdge(8*i+j, x.first, x.second);
+        for(iPair x : pos) {
+          if(validPosition(x.first, x.second)) {
+            adj2.push_back(make_pair(8 * x.first + x.second, cost(i, j, x.first, x.second)));
+          }
+        }
+
+        for(iPair x : adj2) {
+          g.addEdge(8*i+j, x.first, x.second);
         } 
       }
     }
